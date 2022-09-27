@@ -11,7 +11,7 @@ class Cathe {
         }
         LinkedList<String> store = new LinkedList<String>();
         int citySize = cities.length;
-        Iterator<String> it = store.iterator();
+        Iterator<String> it;
         for (int i = 0; i < citySize; ++i) {
             storeSize = store.size();
             it = store.iterator();
@@ -36,10 +36,7 @@ class Cathe {
                 }
              
 		    }
-            
-            
         }
-        
         return answer;
     }
 }

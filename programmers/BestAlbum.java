@@ -16,16 +16,12 @@ import java.util.Stack;
 // 프로그래머스 해시 베스트 앨범
 
 class MusicInfo  {
-
     public int id;
     public int count;
     public MusicInfo(int id, int count) {
         this.id = id;
         this.count = count;
     }
-    
-    
-
 }
 
 class Pair<T1, T2> {
@@ -63,7 +59,7 @@ public class BestAlbum {
             if(map.get(genres[i]) == null) {
                 List<MusicInfo> musicInfos = new ArrayList<MusicInfo>();
                 musicInfos.add(new MusicInfo(i, plays[i]));
-                map.put(genres[i],new Pair<List<MusicInfo>, Integer>(musicInfos, plays[i]));
+                map.put(genres[i], new Pair<>(musicInfos, plays[i]));
          
             }
             else {
@@ -74,36 +70,29 @@ public class BestAlbum {
 
             }
         }    
-        
 
-        
         List<Map.Entry<String,  Pair<List<MusicInfo>, Integer>>> entries = new LinkedList<>(map.entrySet());
-        Collections.sort(entries, (o1, o2) -> { 
-
+        entries.sort((o1, o2) -> {
             return Integer.compare(o2.getValue().getT2(), o1.getValue().getT2()); // 재생을 모두 더한수 비교 
         });
         List<Integer> rs = new ArrayList<>();
         int idx = 0;
         for(int i = 0; i < entries.size(); ++i) {
             List<MusicInfo> temp = entries.get(i).getValue().getT1();
-            Collections.sort(temp, new Comparator<MusicInfo>() {
-                @Override 
-                public int compare(MusicInfo o1, MusicInfo o2) {
-                    if(o1.count > o2.count) {
+            temp.sort((o1, o2) -> {
+                if (o1.count > o2.count) {
+                    return -1;
+                }
+                if (o1.count == o2.count) {
+                    if (o1.id < o2.id) {
                         return -1;
-                    }
-                    if(o1.count == o2.count) {
-                        if(o1.id < o2.id) {
-                            return -1;
-                        }
-                        else {
-                            return 1;
-                        }
-                    }
-                    else {
+                    } else {
                         return 1;
                     }
-            }});
+                } else {
+                    return 1;
+                }
+            });
             for(int j =0; j < temp.size(); ++j) {
                 System.out.println(temp.get(j).id);
                 rs.add(temp.get(j).id);

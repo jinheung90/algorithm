@@ -84,9 +84,5 @@ public class PracticeTest {
             System.out.println(Arrays.toString(answer));
 
         }
-        
-
-        
-
     }
 }

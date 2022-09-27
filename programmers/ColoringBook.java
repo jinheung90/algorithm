@@ -35,12 +35,8 @@ public class ColoringBook {
 
         if(y  > 0) {
             move(arrayImg, x , y - 1, startColor);
-        }        
-
-      
+        }
     }
-    
-
     public static void main(String[] args) 
     {    
 

@@ -12,7 +12,6 @@ int solution(vector<int> people, int limit) {
     int endIndex = size;
     int j;
     for (int i = 0; i < endIndex; ++i) {
-
         count++;
         for (j = endIndex - 1; j > i; --j) {
 
@@ -25,8 +24,6 @@ int solution(vector<int> people, int limit) {
              count++;
         }
         endIndex = j;
-
     }
-
     return count;
 }

@@ -6,8 +6,6 @@ public class MakePrimeNum {
         int[] nums ={8,1,2,3,6,7};
         int answer = 0;
         boolean isTrue = false;
-        
-  
         int count =0;
         for(int i =0; i < nums.length - 2; ++i) {
              for(int j = i + 1; j < nums.length - 1; ++j) {
@@ -31,7 +29,5 @@ public class MakePrimeNum {
             }
         }
         System.out.println(count);
-       
-        
     }
 }

@@ -8,17 +8,11 @@ public class TargetNumber {
         int start2 = start + store[i];
         if(i == store.length - 1) {
 
-            if(start1 == target ) {
-                System.out.print("afgawetg");
-                System.out.println(count);
+            if(start1 == target) {
                 count++;
-                System.out.println(count);
             }
-            if(start2 == target ) {
-                System.out.print("afgawetg");
-                System.out.println(count);
+            if(start2 == target)  {
                 count++;
-                System.out.println(count);
             }
    
         } else {

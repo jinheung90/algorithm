@@ -19,7 +19,6 @@ class Solution {
                 //store.add(i);
             }
         }
-       // System.out.println(store.toString());
         return answer;// store.size();
     }
 }

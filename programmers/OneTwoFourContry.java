@@ -11,11 +11,8 @@ public class OneTwoFourContry {
         int tempOther;
         while(true) {
             if(n == 0) {
-
                 break;
             }
-
-
             tempOther = n % 3;
             n = n/3;
             if(tempOther == 0) {
@@ -23,12 +20,7 @@ public class OneTwoFourContry {
                 tempOther = 4;
             }
             stringBuffer.append(tempOther);
-//            str = tempOther + str;
-
-
         }
-
-
         stringBuffer.reverse().toString();
     }
 

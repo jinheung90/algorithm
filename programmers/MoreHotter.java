@@ -22,12 +22,7 @@ public class MoreHotter {
             temp = ms1 +  2 * ms2;
             queue.offer(temp);
             count++;
- 
-
-          
         }
-        
-
         return count;
     }
 }

@@ -15,16 +15,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 class DiskController {
     public int solution(int[][] jobs) {
-       Queue<int[]> queue2 = new PriorityQueue<>(
+        Queue<int[]> queue2 = new PriorityQueue<>(
                (a, b) -> a[0] >= b[0] ? 1 : -1);
         for (int[] is : jobs) {
             queue2.offer(is);
         }
         Queue<int[]> queue = new PriorityQueue<>(
                 (a, b) -> a[1] >= b[1] ? 1 : -1);
-
-
-
         int time = 0;
         int start = 0;
         int[] temp = null;

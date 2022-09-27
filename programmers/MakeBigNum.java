@@ -22,9 +22,6 @@ public class MakeBigNum {
         for (int i : numbers) {
             strList.add(String.valueOf(i));
         }
-       
-        
-        
         Collections.sort(strList, new Comparator<String>() {
             @Override
             public int compare(String a, String b) {

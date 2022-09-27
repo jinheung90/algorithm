@@ -6,7 +6,6 @@ using namespace std;
 
 // 위장
 int solution(vector<vector<string>> clothes) {
-
 	map<string, vector<string>*> map;
 	int size = clothes.size();
 	std::map<string, vector<string>*>::iterator it;
@@ -24,14 +23,13 @@ int solution(vector<vector<string>> clothes) {
 
 	}
 	int count = 1;
-
 	for (it = map.begin(); it != map.end(); it++) {
-        
+
         cout << it->first << endl;
         for(int i =0; i < it->second->size(); ++i) {
             cout << it->second->begin()[i] << endl;
         }
-        
+
 		count *= (it->second->size() + 1);
         cout << count << endl;
 	}

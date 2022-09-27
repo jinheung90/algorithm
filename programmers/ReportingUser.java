@@ -13,9 +13,6 @@ public class ReportingUser {
             reportHasUser.put(id, new HashSet<>());
             userHasReportCount.put(id, 0);
         }
-//        String test = report[0];
-//        System.out.println(test.substring(0, test.indexOf(" ")));
-//        System.out.println(test.substring(test.indexOf(" ") + 1));
 
         Arrays.stream(report).forEach(r -> {
             int empty = r.indexOf(" ");
@@ -23,24 +20,15 @@ public class ReportingUser {
             item.add(r.substring(0, empty));
         });
 
-//        reportHasUser.entrySet().forEach(r -> {
-//            System.out.println(r.getKey());
-//            r.getValue().forEach(t -> System.out.println(t));
-//        } );
-
         reportHasUser.forEach((key, value) -> value.forEach(
-                v -> {
-                    if(value.size() >= k) {
-                        userHasReportCount.put(v, userHasReportCount.get(v) + 1);
-                    }
+            v -> {
+                if(value.size() >= k) {
+                    userHasReportCount.put(v, userHasReportCount.get(v) + 1);
                 }
+            }
         ));
         for (int i = 0; i < id_list.length; i++) {
-//            if(userHasReportCount.get(id_list[i]) < k) {
-//                result[i] = 0;
-//            } else {
-                result[i] = userHasReportCount.get(id_list[i]);
-//            }
+            result[i] = userHasReportCount.get(id_list[i]);
         }
         for (int i = 0; i <result.length; i++) {
             System.out.println(result[i]);

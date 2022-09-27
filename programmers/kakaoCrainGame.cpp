@@ -9,14 +9,10 @@ using namespace std;
 
 
 int solution(vector<vector<int>> board, vector<int> moves) {
-
     stack<int> iStack;
     int count = 0;
     for (int i = 0; i < moves.size(); ++i) {
-   
         for (int y = 0; y < board.size(); ++y) {
-           
-            
             if (board[y][moves[i] - 1] == 0) continue;
             if (iStack.empty()) {
 
@@ -24,23 +20,18 @@ int solution(vector<vector<int>> board, vector<int> moves) {
                 board[y][moves[i] - 1] = 0;
                 break;
             }
-
-
-            if (iStack.top() == board[y][moves[i] - 1])
-            {
+            if (iStack.top() == board[y][moves[i] - 1]) {
           
                 count += 2;
                 iStack.pop();
-                    board[y][moves[i] - 1] = 0;
+                board[y][moves[i] - 1] = 0;
                 break;
             }
             else {
                 iStack.push(board[y][moves[i] - 1]);
-                 board[y][moves[i] - 1] = 0;
+                board[y][moves[i] - 1] = 0;
                 break;
             }
-            
-                
         }
     }
     return count;

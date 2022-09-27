@@ -14,10 +14,7 @@ class IdxPair {
 	}
 
 }
-
 public class LongDistNum {
-
-
     public static void main(String[] args) {
         
         int[][] edge = {
@@ -76,8 +73,6 @@ public class LongDistNum {
                 }
                 count = 0;
             }
-           
-            
         }
         
         Arrays.sort(depth);
