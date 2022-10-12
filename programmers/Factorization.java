@@ -10,7 +10,5 @@ public class Factorization {
                 result += i;
             }
         }
-
-
     }
 }

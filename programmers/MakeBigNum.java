@@ -1,53 +1,46 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-public class MakeBigNum {
-    public static void main(String[] args) {
-        int[] numbers = {3, 30, 34, 5, 9};
+import java.util.*;
 
-        ArrayList<String> strList = new ArrayList<>();
-        int isZero = 0; 
-        for (int i : numbers) {
-            if(i != 0)  {
-                isZero = 1;
-                break;
-            } 
+public class MakeBigNum {
+
+    public static class Point implements Comparable<Point> {
+        public int i = -1;
+        public int value = -1;
+
+        @Override
+        public int compareTo(Point o) {
+            return Integer.compare(value, o.value);
         }
-        
-        if(isZero == 0) {
-            String rs = "0";
-        }
-        
-        for (int i : numbers) {
-            strList.add(String.valueOf(i));
-        }
-        Collections.sort(strList, new Comparator<String>() {
-            @Override
-            public int compare(String a, String b) {
-                if(a.charAt(0) == b.charAt(0)) {
-                    int aSize = a.length();
-                    int bSize = b.length();
-                    int minMulti = aSize * bSize;
-                    String tempA ="";
-                    String tempB = "";
-                    for (int i = 0; i < bSize; i++) {
-                        tempA += a;        
-                    }
-                    for (int i = 0; i < aSize; i++) {
-                        tempB += b;        
-                    }
-                    return tempB.compareTo(tempA);
-                }       
-                return b.compareTo(a);
+    }
+    public static void main(String[] args) {
+        String number = "4177252841346345735784584524623473252346234672346347345634634653463463453453455345346734734563463456363463473473474573457346585645632452341235136363467346345346347347347347316713724352356";
+        int k = 100;
+        StringBuilder stringBuilder = new StringBuilder(number);
+
+        int count = 0;
+        while (count < k) {
+            int minValue = stringBuilder.charAt(0) - '0';
+
+            int minIdx = 0;
+            int i = 0;
+            int whileCount = k;
+            if(stringBuilder.length() < k) {
+                whileCount =stringBuilder.length();
+            }
+
+            while (i < whileCount) {
+                int tempNum = stringBuilder.charAt(i) - '0';
+                if(minValue > tempNum) {
+                    minValue = tempNum;
+                    minIdx = i;
+                }
+                i++;
 
             }
-        });
-        String rs = "";
-        for (String string : strList) {
-            rs += string;
+            stringBuilder.deleteCharAt(minIdx);
+            System.out.println(stringBuilder);
+            count++;
         }
-        System.out.println(rs);
-     
+
+        System.out.println(stringBuilder.toString());
     }
 }

@@ -5,7 +5,8 @@ public class TripPath {
     static boolean[] ticketUsed; // 티켓 사용 여부
     static ArrayList<String> result; // 티켓을 사용하는 경로의 경우의 수
 
-    public String[] solution(String[][] tickets) {
+    public String[] main(String[] args) {
+        String[][] tickets = new String[2][2];
         ticketUsed = new boolean[tickets.length];
         result = new ArrayList<>();
         dfs("ICN", "ICN", 0, tickets);
