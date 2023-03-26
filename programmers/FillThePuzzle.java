@@ -52,6 +52,8 @@ class PuzzlePiece {
                 "points=" + points +
                 '}';
     }
+
+
 }
 
 public class FillThePuzzle {
@@ -96,7 +98,7 @@ public class FillThePuzzle {
                     continue;
                 }
                 PuzzlePiece puzzlePiece = new PuzzlePiece();
-                getEmptySpaces(table, puzzlePiece, j , i,game_board_visit, 0);
+                getEmptySpaces(table, puzzlePiece, j , i, game_board_visit, 0);
                 puzzlePieces.add(puzzlePiece);
             }
         }
@@ -105,27 +107,44 @@ public class FillThePuzzle {
         emptySpace.toString();
         System.out.println(emptySpace.size());
         puzzlePieces.toString();
+        int result = 0;
+        for (PuzzlePiece puzzlePiece : puzzlePieces
+             ) {
+            for (int i = 0; i < emptySpace.size(); i++) {
+                PuzzlePiece empty = emptySpace.get(i);
+                if(empty.getPoints().size() != puzzlePiece.getPoints().size()) {
+                    continue;
+                }
+            }
+        }
     }
 
-    public static void getEmptySpaces(int[][] game_board,  PuzzlePiece emptySpace, int rx, int ry, boolean[][] game_board_visit, int flag) {
-        System.out.println(rx);
-        System.out.println(ry);
+    public static boolean fitBlock(PuzzlePiece empty, PuzzlePiece piece) {
+
+            Point emptyF = empty.getPoints().iterator().next();
+            Point pieceF = piece.getPoints().iterator().next();
+
+            return true;
+    }
+
+    public static void getEmptySpaces(int[][] game_board,  PuzzlePiece emptySpace, int rx, int ry,  boolean[][] game_board_visit, int flag) {
+
         if(game_board_visit[ry][rx] || game_board[ry][rx] == flag) {
             return;
         }
         game_board_visit[ry][rx] = true;
         emptySpace.getPoints().add(new Point(rx, ry));
         if(rx > 0) {
-            getEmptySpaces(game_board, emptySpace, rx - 1, ry, game_board_visit, flag);
+            getEmptySpaces(game_board, emptySpace, rx - 1, ry,  game_board_visit, flag);
         }
         if(rx < game_board.length - 1) {
-            getEmptySpaces(game_board, emptySpace, rx + 1, ry, game_board_visit, flag);
+            getEmptySpaces(game_board, emptySpace, rx + 1, ry,  game_board_visit, flag);
         }
         if(ry > 0) {
-            getEmptySpaces(game_board, emptySpace, rx, ry - 1, game_board_visit, flag);
+            getEmptySpaces(game_board, emptySpace, rx, ry - 1,  game_board_visit, flag);
         }
         if(ry < game_board.length - 1) {
-            getEmptySpaces(game_board, emptySpace, rx, ry + 1, game_board_visit, flag);
+            getEmptySpaces(game_board, emptySpace, rx, ry + 1,  game_board_visit, flag);
         }
     }
 }
